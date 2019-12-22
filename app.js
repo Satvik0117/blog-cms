@@ -2,7 +2,7 @@ var express = require("express"),
     app     = express(),
     mongoose = require("mongoose"),
     bodyParser = require("body-parser"),
-    expressSanitizer = require("express-sanitizer"),
+    // expressSanitizer = require("express-sanitizer"),
     passport              = require("passport"),
     User                  = require("./models/user"),
     LocalStrategy         = require("passport-local"),
@@ -11,7 +11,7 @@ var express = require("express"),
     
 mongoose.connect("mongodb://localhost/blog_app");
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(expressSanitizer());
+// app.use(expressSanitizer());
 app.set("view engine", "ejs");
 // app.use(express.static("./uploads"));
 app.use('/uploads', express.static('uploads'));
@@ -38,8 +38,16 @@ var blogSchema = new mongoose.Schema({
     imgPath:String,
     created:  {type: Date, default: Date.now}
 });
+var postAsGuestSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    contact: String,
+    message:String
+});
 
 var Blog = mongoose.model("Blog", blogSchema);
+var PAGuser = mongoose.model("PAGuser", postAsGuestSchema);
+
 const upload = require("./multer/storage.js");
 
 
@@ -56,6 +64,27 @@ app.get("/", function(req, res){
             res.render("public-index-test", {blogs: blogs}); 
         }
     })
+});
+app.get("/about",function(req,res){
+    res.render("about");
+});
+app.get("/contact",function(req,res){
+    res.render("contact");
+});
+app.post("/contact",function(req,res){
+    console.log(req.body);
+    let newuser = new PAGuser();
+    newuser.name=req.body.name;
+    newuser.email=req.body.email;
+    newuser.contact=req.body.contact;
+    newuser.save(()=>{
+         
+            res.redirect("/");
+
+        
+    });
+
+
 });
 app.get("/blog/:id", function(req, res){
     Blog.findById(req.params.id, function(err, blog){
