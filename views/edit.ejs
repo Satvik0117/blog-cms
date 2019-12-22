@@ -1,0 +1,21 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">Edit Post</div>
+    <form class="ui form" action="/admin/blogs/<%=blog._id%>?_method=PUT" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input type="text" value="<%= blog.title %>" name="blog[title]">
+        </div>
+        <div class="field">
+            <label>HTML Code of the Blog Page</label>
+            <textarea name="blog[html]"><%= blog.html%> </textarea>
+        </div>
+        <div class="field">
+            <label>Intro Text To be Displayed on the Index Page</label>
+            <textarea name="blog[intro_text]"><%= blog.intro_text%> </textarea>
+        </div>
+        <button class="ui big violet basic button">Update Post</button>
+    </form>
+</div>
+<% include partials/footer %>

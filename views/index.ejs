@@ -1,0 +1,33 @@
+<% include partials/header %>
+   <div class="ui main text container">
+   	<div class="ui huge header">Admin Panel</div>
+    <div class="ui top attached segment">
+<div class="ui divided items">
+	<% blogs.forEach(function(blog){ %>
+	 <div class="item">
+	   
+	    <div class="content">
+		  <h2 class="header"><%= blog.title %></h2><br>
+		  <p > Introductory Text:- </p><span class="cinema"><%= blog.intro_text %></span>
+		  
+	      <div class="meta">
+
+	        <span class="cinema">Created On:-<%= blog.created.toDateString() %></span>
+	      </div>
+	    <img class="img-fluid" src='http://localhost:3000/uploads/<%=blog.imgPath%> '>
+	      <div class="extra">
+	        <a href="/admin/blogs/<%=blog._id %>" class="ui floated basic violet button">
+	          Edit/Delete Blog
+	          <i class="right chevron icon"></i>
+	        </a>
+	      </div>
+	    </div>
+	  </div>
+	<% }); %>
+</div>
+</div>
+    
+  </div>
+<% include partials/footer %>
+
+ 
