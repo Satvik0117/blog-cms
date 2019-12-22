@@ -98,21 +98,21 @@ app.get("/blog/:id", function(req, res){
     })
 });
 //show sign up form
-app.get("/register", function(req, res){
-   res.render("register"); 
-});
+// app.get("/register", function(req, res){
+//    res.render("register"); 
+// });
 //handling user sign up
-app.post("/register", function(req, res){
-    User.register(new User({username: req.body.username}), req.body.password, function(err, user){
-        if(err){
-            console.log(err);
-            return res.render('register');
-        }
-        passport.authenticate("local")(req, res, function(){
-           res.redirect("/secret");
-        });
-    });
-});
+// app.post("/register", function(req, res){
+//     User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+//         if(err){
+//             console.log(err);
+//             return res.render('register');
+//         }
+//         passport.authenticate("local")(req, res, function(){
+//            res.redirect("/secret");
+//         });
+//     });
+// });
 
 // LOGIN ROUTES
 //render login form
