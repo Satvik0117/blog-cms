@@ -71,6 +71,14 @@ app.get("/about",function(req,res){
 app.get("/contact",function(req,res){
     res.render("contact");
 });
+
+app.get("/blog-1",function(req,res){
+    res.render("blog-1");
+});app.get("/blog-2",function(req,res){
+    res.render("blog-2");
+});app.get("/blog-3",function(req,res){
+    res.render("blog-3");
+});
 app.post("/contact",function(req,res){
     console.log(req.body);
     let newuser = new PAGuser();
@@ -83,7 +91,6 @@ app.post("/contact",function(req,res){
 
         
     });
-
 
 });
 app.get("/blog/:id", function(req, res){

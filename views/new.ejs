@@ -1,5 +1,13 @@
 <% include partials/header %>
+<style>
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
 
+</style>
 <div class="ui main text container segment">
     <div class="ui huge header">New Post</div>
     <form class="ui form" action="/admin/blogs" method="POST"  enctype="multipart/form-data">
@@ -15,15 +23,17 @@
             <label>Intro Text To be Displayed on the Index Page(1st 30 words will be displayed)</label>
             <input type="text" name="intro_text">
         </div>
-        <div class="field">
+        <div class="field custom-file-upload">
             <label>Image</label>
-            <input type="file" name="image">
+            <input type="file" name="image"  size="600"/>
         </div>
         <!-- <div class="field">
             <label>Post Content</label>
             <textarea name="blog[body]"></textarea>
         </div> -->
+        <div>
         <input type="submit">
+        </div>
         <!-- <button class="ui big violet basic button">Create Post</button> -->
     </form>
 </div>
