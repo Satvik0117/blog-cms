@@ -41,7 +41,7 @@
             <div class="header__content row">
 
                 <div class="header__logo">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="/">
                         <img src="/images/logo.png" alt="Homepage">
                     </a>
                 </div> <!-- end header__logo -->
@@ -170,7 +170,7 @@
                             <div class="entry__content">
                                 <!-- <span class="entry__category"><a href="#0">LifeStyle</a></span> -->
 
-                                <h1><a href="blog-3" title=""> Types of Planes and When To Use Them?</a></h1>
+                                <h1><a href="blog-3" title="">Types of Planes and When To Use Them?</a></h1>
 
                                 <div class="entry__info">
                                     <a href="#0" class="entry__profile-pic">
@@ -208,7 +208,7 @@
                  <article class="masonry__brick entry format-standard" data-aos="fade-up">
                         
                     <div class="entry__thumb">
-                        <a href="single-standard.html" class="entry__thumb-link">
+                        <a href="/blog/<%=blogs[i]._id%>" class="entry__thumb-link">
                             <img src="/uploads/<%=blogs[i].imgPath%>" 
                                     alt="">
                         </a>
@@ -218,7 +218,7 @@
                         <div class="entry__header">
                             
                             <div class="entry__date">
-                                <a href="single-standard.html"><%=blogs[i].created.toDateString() %></a>
+                                <a href="/blog/<%=blogs[i]._id%>"><%=blogs[i].created.toDateString() %></a>
                             </div>
                             <h1 class="entry__title"><a href="/blog/<%=blogs[i]._id%>"><%=blogs[i].title %></a></h1>
                             
@@ -259,7 +259,7 @@
             <article class="masonry__brick entry format-standard" data-aos="fade-up">
                         
                 <div class="entry__thumb">
-                    <a href="single-standard.html" class="entry__thumb-link">
+                    <a href="/blog/<%=blogs[i]._id%>" class="entry__thumb-link">
                         <img src="/uploads/<%=blogs[i].imgPath%>" 
                                 alt="">
                     </a>
@@ -269,7 +269,7 @@
                     <div class="entry__header">
                         
                         <div class="entry__date">
-                            <a href="single-standard.html"><%=blogs[i].created.toDateString() %></a>
+                            <a href="/blog/<%=blogs[i]._id%>"><%=blogs[i].created.toDateString() %></a>
                         </div>
                         <h1 class="entry__title"><a href="/blog/<%=blogs[i]._id%>"><%=blogs[i].title %></a></h1>
                         
